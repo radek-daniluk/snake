@@ -5,4 +5,4 @@ Written to remind me how to use SDL2 library.
 
 screenshots:
 
-![Snake gameplay](screenshots/snake-game-animation.png)
+<kbd><img src="screenshots/snake-game-animation.png" /></kbd>
