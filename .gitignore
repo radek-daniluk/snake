@@ -40,3 +40,5 @@ log*
 # snake executable
 snake
 
+# vim swap files
+.*.swp
