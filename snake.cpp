@@ -12,7 +12,7 @@ void initNewGame( void );
 
 typedef enum { up, down, left, right } Direction;
 typedef enum { empty=0, head, mid, tail, item, wall } Tile; // see board[][]
-typedef enum { running, stopped, paused, gameOver } gameState;
+typedef enum { running, stopped, paused, gameOver } GameState;
 
 void changeDir( Direction );
 void findNext( void ); // find next tile of the snake's movement -see dir & pnext
@@ -29,12 +29,12 @@ const int tile = 16;
 const int screenWidth = tile * width;
 const int screenHeight = tile * height;
 
-gameState state;
+GameState state;
 
-// game board represents current state of the game
+// game board
 Tile board[height][width];
 
-// Snake is a FIFO. Back of the FIFO is snake head, front is snake tail.
+// Snake is a FIFO. Back of the FIFO is snake's head, front is snake's tail.
 std::queue< Tile* > waz;
 
 // Current direction of the snake's movement
@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
 
 void initNewGame( void ) {
 
-	// set the initial pozition of the snake in the game board and
+	// set the initial position of the snake in the game board and
 	// in the snake queue
 	board[4][3] = tail; // end of the snake
 	waz.push( &board[4][3] );
@@ -144,6 +144,7 @@ void initNewGame( void ) {
 	// initial items
 	board[6][4]=board[2][1]=board[2][10]=board[20][16]=item;
 
+	// walls
 	for(int i=0; i<height; i++)
 		board[i][0] = wall;
 
